@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>排他功能</title>
+	</head>
+	<body>
+		<!-- 排他功能 -->
+		<input type="button" class="a"></input>
+		<input type="button" class="a"></input>
+		<input type="button" class="a"></input>
+		<input type="button" class="a"></input>
+		<input type="button" class="a"></input>
+		<input type="button" class="a"></input>
+		<input type="button" class="a"></input>
+
+		<script type="text/javascript">
+			var pp = document.getElementsByTagName("input");
+			/* 	for (var i = 0; i < pp.length; i++) {
+						pp[i].onclick = function() {
+		
+							pp[i].value = "aaaaa";
+						}
+		//事件在触发时执行，for循环在页面加载时已经加载完成
+					} */
+			for (var i = 0; i < pp.length; i++) {
+				pp[i].onclick = function() {
+					for (var j = 0; j < pp.length; j++) {
+						pp[j].value = "ggg";
+						
+					}
+					this.value = "qqq";
+				};
+				//重要事项：如果在 HTML 表单中使用 input 元素，不同的浏览器会提交不同的值。Internet Explorer 将提交 <input> 与 <input/> 之间的文本，而其他浏览器将提交 value 属性的内容。请在 HTML 表单中使用 input 元素来创建按钮。
+			}
+		</script>
+	</body>
+</html>

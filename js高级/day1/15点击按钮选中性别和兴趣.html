@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>15点击按钮选中性别和兴趣</title>
+	</head>
+	<body>
+		<input type="button" name="" id="aaa" value="修改性别" />
+		<input type="radio" name="" value="切换图片" />男
+		<input type="radio" name="" value="切换图片" id="women"/>女
+		<input type="radio" name="" value="切换图片" />保密
+		<input type="radio" name="" value="切换图片"/>中性
+		<script type="text/javascript">
+			function myId(id) {
+				return document.getElementById(id);
+			}
+			//在表单标签中,如checked这样的属性,只有本身一个值,DOM中用布尔值来做,只写这个属性
+			myId("women").checked = true;//true为选中
+			}
+			//disabled 这个属性是禁用的
+		</script>
+	</body>
+</html>
