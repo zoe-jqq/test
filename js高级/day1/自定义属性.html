@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="" id="aaa" value="" />
+		<ul>
+			<li score="50" value="11">````</li>
+			<li score="10">22</li>
+			<li score="22"  value = "22">  ffff</li>
+		</ul>
+		<script type="text/javascript">
+			var li = document.getElementsByTagName("li");
+			for (var i = 0; i < li.length; i++) {
+				li[i].onclick = function () {
+					alert (this.score);
+					alert(this.getAttribute("score"));
+				}
+			}
+			// 获取自定义属性用getAttribute,因为getElementById获取的是document对象,没有自定义属性
+			//在 HTML DOM 中，Attr 对象表示 HTML 属性。HTML 属性始终属于 HTML 元素。
+		</script>
+	</body>
+</html>

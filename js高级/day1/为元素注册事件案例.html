@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>为元素注册事件</title>
+
+		
+<!-- 
+4.点击图片设置自身宽和高
+
+6.点击按钮显示哈哈(排他功能)
+7.点击按钮显示和隐藏div
+8.显示和隐藏二维码
+
+10.点击按钮修改所有文本框内容
+
+12.点击超链接停止跳转页面
+
+14.美女相册 -->
+
+	</head>
+	<body>
+	
+	<!-- 排他功能 -->
+		<input type="button" class="a" />
+		<input type="button" class="a" />
+		<input type="button" class="a" />
+		<input type="button" class="a" />
+		<input type="button" class="a" />
+		<input type="button" class="a" />
+		<input type="button" class="a" />
+
+		<script type="text/javascript">
+			var pp = document.getElementsByTagName("input");
+			/* 	for (var i = 0; i < pp.length; i++) {
+				pp[i].onclick = function() {
+
+					pp[i].value = "aaaaa";
+				}
+//事件在触发时执行，for循环在页面加载时已经加载完成
+			} */
+			for (var i = 0; i < pp.length; i++) {
+				pp[i].onclick = function() {
+// 					for (var j = 0; j < pp.length; j++) {
+// 						pp[j].value = "ggg";
+// 					}
+					this.value = "qqq";
+				};
+				//事件在触发时执行，for循环在页面加载时已经加载完成
+			}
+		</script>
+		</body>
+</html>

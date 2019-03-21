@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 9.点击按钮设置p标签的显示内容 -->
+		<button type="button" class="a" id="aaa" >显示内容</button>
+		<p class="pp"></p>
+		<p class="pp"></p>
+		<p class="pp"></p>
+		<p class="pp"></p>
+		<p class="pp"></p>
+		<p class="pp"></p>
+		<script type="text/javascript">
+			var a = document.getElementById("aaa")
+			a.onclick = function() {
+				var pp = document.getElementsByTagName("p");//pp是一个伪数组
+				for (var i = 0; i < pp.length; i++) {
+					pp[i].textContent = "aaaaa";
+				}
+			
+				// textContent能够获取元素的所有子节点上的文本，不管这个节点是否呈现；而innerText只返回呈现到页面上的文本;
+				// 设置内容时会把指定节点下的所有子节点也一并替换掉
+				//  innerHTML 可设置标签效果
+			}
+		</script> 
+	</body>
+</html>
