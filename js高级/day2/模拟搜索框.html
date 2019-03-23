@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="mui-input-row mui-search">
+			<input type="search" class="mui-input-clear" placeholder="请输入搜索内容" id="div1">
+			<!-- search HTML5的新对象 -->
+			<!-- placeholder 规定帮助用户填写输入字段的提示。 -->
+		
+		<script type="text/javascript" src="../js/getId.js">
+
+		</script>
+		<script type="text/javascript">
+			myId("div1").onfocus = function() {
+				this.placeholder = "";
+			}
+			myId("div1").onblur = function() {
+				this.placeholder = "请输入搜索内容";
+			}
+		</script>
+	</body>
+</html>

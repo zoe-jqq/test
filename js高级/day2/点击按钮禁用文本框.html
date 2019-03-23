@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="" id="button1" value="禁用文本框" />
+		<input type="text" name="" id="text1" value="" />
+		<script type="text/javascript">
+			document.getElementById("button1").onclick = function(){
+				document.getElementById("text1").disabled  = true ;				//disabled:disabled 属性规定应该禁用 input 元素。被禁用的 input 元素既不可用，也不可点击。可以设置 disabled 属性，直到满足某些其他的条件为止（比如选择了一个复选框等等）。然后，就需要通过 JavaScript 来删除 disabled 值，将 input 元素的值切换为可用。
+				// disabled 属性无法与 <input type="hidden"> 一起使用。
+			}
+		</script>
+	</body>
+</html>

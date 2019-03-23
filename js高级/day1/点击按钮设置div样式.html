@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 500px;
+				height: 300px;
+				background-color: antiquewhite;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="" id="aaa" value="修改属性" />
+		<input type="button" name="" id="bbb" value="显示隐藏" />
+		<div id="div1">
+
+		</div>
+		<script type="text/javascript">
+			function myId(id) {
+				return document.getElementById(id);
+			}
+			
+			myId("aaa").onclick = function() {
+				myId("div1").style.width = "300px";
+				myId("div1").style.height = "200px";
+				myId("div1").style.backgroundColor = "#222";//在JS中,css中的属性带-的全变成去-并改称驼峰式
+			} 
+
+myId("bbb").onclick = function() {
+				if(myId("div1").style.display == "none"){
+					myId("div1").style.display = "block";
+				}else{
+					myId("div1").style.display = "none";
+				}
+				
+			} 
+
+
+			
+		</script>
+	</body>
+</html>

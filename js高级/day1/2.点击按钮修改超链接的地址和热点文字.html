@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>2.点击按钮修改超链接的地址和热点文字</title>
+	</head>
+	<body>
+		<!-- 2.点击按钮修改超链接的地址和热点文字 -->
+		<button type="button" class="a" id="aaa">链接</button>
+		<a href="ms数转对象.html" id="aaaaa">aa</a>
+		<script type="text/javascript">
+			var a = document.getElementById("aaa")
+			a.onclick = function() {
+				var pp = document.getElementById("aaaaa");
+				pp.textContent = "aaaaa";
+				pp.href = "http://127.0.0.1:8848/js练手/扫雷.html";
+				// textContent能够获取元素的所有子节点上的文本，不管这个节点是否呈现；而innerText只返回呈现到页面上的文本;
+				// 设置内容时会把指定节点下的所有子节点也一并替换掉
+			}
+		</script>
+	</body>
+</html>

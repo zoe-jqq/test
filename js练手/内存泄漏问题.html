@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="" id="test" value="" />
+		<script type="text/javascript">
+			var user = {
+				name: 'tom',
+				age: 20,
+				gender: 'male'
+			}
+			var test = document.getElementById('test')
+			test.onclick = function() {
+				test.style.value = user.name;
+			}
+			// ...后面还有很多其他操作，最后把user对象释放掉
+			user = null; // 释放对象
+		</script>
+		<!-- 1、当页面中元素被移除或替换时，若元素绑定的事件仍没被移除，在IE中不会作出恰当处理，此时要先手工移除事件，不然会存在内存泄露。 -->
+	</body>
+</html>

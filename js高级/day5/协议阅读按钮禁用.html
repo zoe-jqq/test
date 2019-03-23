@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea name="texta" rows="10" cols="30">
+	textarea 标签定义一个多行的文本输入控件。
+文本区域中可容纳无限数量的文本，其中的文本的默认字体是等宽字体（通常是 Courier）。可以通过 cols 和 rows 属性来规定 textarea 的尺寸大小，不过更好的办法是使用 CSS 的 height 和 width 属性。 
+		</textarea>
+		<input type="button" name="" id="btn1" value="请仔细阅读协议(5)" disabled="disabled" />
+		<script type="text/javascript" src="../js/getId.js">
+
+		</script>
+		<script type="text/javascript">
+			var value = 5;
+			intervalId = setInterval(function() {
+			value--;
+				myId("btn1").value = "请仔细阅读协议(" + value + ")";
+				
+				if (value == 0) {
+					clearInterval(intervalId);
+					myId("btn1").disabled = false;
+					myId("btn1").value = "确认提交";
+				};
+
+			}, 1000);
+		</script>
+	</body>
+</html>

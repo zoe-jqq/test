@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>实现sort方法</title>
+		<script type="text/javascript">
+			function MyArray() {
+				/* 1.小的在前，大的在后;i>j,交换位置 */
+				this.mySort = function(arr) {
+					for (var i = 0; i < arr.length - 1; i++) {
+						for (var j = 0; j < arr.length - 1 - i; j++) {
+							if (arr[j] > arr[j + 1]) {
+								var temp = arr[j];
+								arr[j] = arr[j + 1];
+								arr[j + 1] = temp;
+
+							}
+						}
+					}
+				}
+/* 不用写return，因为数组是对象，传参传 的是地址值，引用的是同一个对象 */
+			}
+			var myArray = new MyArray();
+			// arr.length=0//清空数组
+			
+			
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

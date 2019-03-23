@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="tutorial" width="500px" height="300px"></canvas>
+
+		<script type="text/javascript">
+			function draw() {
+				var canvas = document.getElementById('tutorial');
+				if (!canvas.getContext) return;
+				var ctx = canvas.getContext("2d");
+				ctx.fillStyle = "rgb(200,0,0)";
+				//绘制矩形
+				ctx.fillRect(10, 10, 55, 50);
+
+				ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+				ctx.fillRect(30, 30, 55, 50);
+			}
+			// draw();
+			//绘制三角形
+			function drawTriangle() {
+				var canvas = document.getElementById('tutorial');
+				if (!canvas.getContext) return;
+				var ctx = canvas.getContext("2d");
+				ctx.beginPath();
+				ctx.moveTo(50, 50);
+				ctx.lineTo(200, 50);
+				ctx.lineTo(200, 200);
+				ctx.closePath(); //虽然我们只绘制了两条线段，但是closePath会closePath，仍然是一个3角形
+				ctx.stroke(); //描边。stroke不会自动closePath()
+				ctx.fill();
+			}
+			// drawTriangle();
+			//绘制圆弧
+			function drawArc() {
+				var canvas = document.getElementById('tutorial');
+				if (!canvas.getContext) return;
+				var ctx = canvas.getContext("2d");
+				ctx.beginPath();
+				ctx.arc(50, 50, 40, 0, Math.PI / 2, false);
+				ctx.stroke();
+			}
+
+			function draw22() {
+				// drawArc();
+				//lineCap 设置线条两端样式 square round
+				//lineJoin 设置相交线的拐点 miter round bevel
+				//虚线 setLineDash([5]),函数 设置虚线,5可改成多个参数
+				//getLineDash 获取不重复的那段排列方式
+				//lineDashOffset正值向后偏移
+				var canvas = document.getElementById('tutorial');
+				if (!canvas.getContext) return;
+				var ctx = canvas.getContext("2d");
+				ctx.beginPath();
+				ctx.moveTo(100, 100);
+				ctx.lineTo(200, 100);
+				ctx.arc(50, 50, 40, 0, Math.PI / 2, false);
+				ctx.setLineDash([5, 10, 15]);
+				ctx.stroke();
+			}
+			//draw22();
+			//渐变矩形
+			function draw23() {
+
+				var canvas = document.getElementById('tutorial');
+				if (!canvas.getContext) return;
+				var ctx = canvas.getContext("2d");
+				ctx.beginPath();
+				ctx.lineWidth = 30;
+				// ctx.setLineDash([5, 10, 15]);
+				for (var i = 0; i < 105; i++) {
+					ctx.beginPath();
+					ctx.moveTo(20 + i - 1, 100);
+					ctx.lineTo(100 + i, 100);
+					ctx.strokeStyle = 'rgb(' + i + ',' + i + ',' + i + ')';
+					ctx.stroke();
+				}
+
+			}
+			// draw23();
+			//绘制矩形
+			function draw24() {
+
+				var canvas = document.getElementById('tutorial');
+				if (!canvas.getContext) return;
+				var ctx = canvas.getContext("2d");
+				ctx.beginPath();
+				ctx.fillStyle = 'pink'
+				ctx.fillRect(100, 100, 100, 100);
+
+
+				ctx.stroke();
+			}
+
+			// draw24();
+			//绘制折线图
+			function draw25() {
+
+				var canvas = document.getElementById('tutorial');
+				if (!canvas.getContext) return;
+				var ctx = canvas.getContext("2d");
+				//绘制网格
+				
+				///设置网格宽高
+				var gridSize = 10;
+				///获取画布宽高
+				var canvasHeight = ctx.canvas.height;
+				var canvasWidth = ctx.canvas.width;
+				
+				///计算网格的线条数并进行绘制
+				var xLineTotal = Math.floor(canvasHeight/gridSize);
+                for (var i = 0; i <=xLineTotal; i++) {
+					ctx.beginPath();
+					ctx.moveTo(0,i*gridSize-0.5);//-0.5避免重叠
+					ctx.lineTo(canvasWidth, i*gridSize-0.5);
+					// ctx.stroke();
+				}
+				
+				var yLineTotal = Math.floor(canvasWidth/gridSize);
+				for (var i = 0; i <=yLineTotal; i++) {
+					ctx.beginPath();
+					ctx.moveTo(i*gridSize-0.5,0);
+					ctx.lineTo(i*gridSize-0.5,canvasHeight );
+					// ctx.stroke();
+				}
+				//绘制坐标轴
+			
+				var space = 20,arrowSize = 10;
+					//设置坐标轴起点,终点
+				var x0 = space,y0 = canvasHeight-space,
+				    xe =canvasWidth-space ,ye = space;
+					//绘制x轴
+					ctx.beginPath();
+					ctx.moveTo(x0,y0);
+					ctx.lineTo(xe,y0);
+					ctx.stroke();
+					//绘制x轴箭头
+					ctx.lineTo(xe - arrowSize,y0 + arrowSize/2);
+					ctx.lineTo(xe - arrowSize,y0 - arrowSize/2);		
+					ctx.lineTo(xe ,y0 );						
+					ctx.fill();
+					//绘制y轴
+					ctx.beginPath();
+					ctx.moveTo(x0,y0);
+					ctx.lineTo(x0,ye);
+					ctx.stroke();
+					//绘制y轴箭头
+					ctx.lineTo(x0+ arrowSize/2,ye + arrowSize);
+					ctx.lineTo(x0- arrowSize/2,ye + arrowSize);		
+					ctx.lineTo(x0 ,ye );						
+					ctx.fill();		
+						
+						//绘制点
+						var coords = {
+							x:111,
+							y:235
+						}
+						var dotted = 6;
+							ctx.moveTo(coords.x-dotted/2,coords.y-dotted/2);
+						
+						ctx.lineTo(coords.x+dotted/2,coords.y-dotted/2);
+						ctx.lineTo(coords.x+dotted/2,coords.y+dotted/2);
+						ctx.lineTo(coords.x-dotted/2,coords.y+dotted/2);
+						// ctx.closePath();
+						ctx.fill();	
+						
+			}
+			draw25();
+		</script>
+	</body>
+</html>

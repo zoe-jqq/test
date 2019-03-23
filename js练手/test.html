@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		/* 	var n = 0.3,m = 0.2,i=0.2,j=0.1;
+			alert((n-m)==(i-j));
+			alert((n-m)==0.1);
+			alert((i-j)==0.1); */
+			function test1 (arr) {
+					var s= {
+						a:0,
+						b:0
+					}
+				for (var i = 0; i < arr.length; i++) {
+				
+					s.a += arr[i].a?arr[i].a:0;
+					// console.log(s.a);
+						s.b += arr[i].b?arr[i].b:0;
+				}
+				return s;
+			}
+			var arr = [{a:1},{b:2},{a:3,b:4}];
+			// console.log(test1(arr));
+			function get (obj,str) {
+// 				if (str in obj) {
+// 					console.log(obj[str])
+// 				} else{
+// 					console.log("undefined");
+// 				}
+console.log(obj[str])			
+			}
+			var obj = {
+				a:{b:7}
+			}
+			get(obj,'a.b');
+		
+		</script>
+	</body>
+</html>

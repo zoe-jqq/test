@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="高亮" id="btn" />
+		<ul id="aaa">
+			<li>a</li>
+			<li>b</li>
+			<li>g</li>
+			<li>d</li>
+			<li>d</li>
+			<li>d</li>
+		
+		</ul>
+		<script type="text/javascript" src="../js/getId.js">
+		
+		</script>
+		<script type="text/javascript">
+		var li = myId("aaa").getElementsByTagName("li");
+			
+				
+				for (var i = 0; i <li.length; i++) {
+					
+					li[i].onmousemove = function () {
+						console.log("aaa")
+						this.style.backgroundColor = "yellow";
+					}
+				
+		
+			li[i].onmouseleave = function () {
+					console.log("aaa")
+					this.style.backgroundColor = "";
+					//hover 为css选择器
+				}
+			}
+		</script>
+	</body>
+</html>

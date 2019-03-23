@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>3.点击(每个)图片弹出对话框</title>
+	</head>
+	<body>
+		<!-- 3.点击(每个)图片弹出对话框 -->
+			<button type="button" class="a" id="aaa" >显示图片</button>
+		<img src="img/1.jpg" alt="tututu" style="display: none;" id="im"> 
+		<script type="text/javascript">
+				//方法一
+			var a = document.getElementById("aaa");
+			a.onclick = function () {
+				var img = document.getElementById("im")
+				img.style.display = "block"
+				//alt 图片无法显示时的代替文字,当用户把鼠标移到图像上方，最新的浏览器会在一个文本框中显示描述性文本 
+						} 
+		</script>
+			<!-- <button type="button" class="a" >显示图片</button>
+			<img src="" alt=""  id="im"/>		
+				
+		    <script type="text/javascript">
+				//方法二：
+			/* var a = document.getElementById("aaa");
+			a.onclick = function () {
+				var img = document.getElementById("im")
+				img.src = "img/1.jpg";
+							} */
+			</script> -->
+	</body>
+</html>
