@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>寻找字符串中出现次数最少的、并且首次出现位置最前的字符</title>
+		
+	</head>
+	<body>
+		<script type="text/javascript">
+			function findLeastOccurChar(str) {
+  const chars = str.split('')
+  const occurance = []
+  chars.forEach(c => {
+    let item = occurance.find(x => x.char == c)
+    if (item) {
+      item.count++
+    } else {
+      occurance.push({
+        char: c,
+        count: 1
+      })
+    }
+  })
+  
+  return occurance.reduce((min, cur) => cur.count < min.count ? cur : min)
+}
+
+const testString = 'cbaacfdeaebb';
+findLeastOccurChar(testString)
+			
+			</script>
+	</body>
+</html>
