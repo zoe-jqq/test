@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+				function partial(age) {
+				this.age = age
+				// console.log(age)
+			
+			}
+			function f2 (age) {
+				partial.call(f2,age)
+				console.log(f2.age)
+			}
+			f2(2)
+		</script>
+	</body>
+</html>

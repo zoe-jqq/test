@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var x = 1;
+//作用域链取决于函数声明的位置，函数声明之后，从函数内部往外，一直到window，这就是它的作用域链，与函数调用位置无关；
+//this指向函数调用时的对象，如果是独立调用，那就是指向window，与函数声明的位置无关；
+			var obj = {
+				x: 2,
+				y: function() {//当函数作为某个对象的方法进行调用时,this等于那个对象|匿名函数的执行函数具有全局性
+					x=3
+					console.log(this.x);
+						console.log(this);
+				}
+			};
+
+			setTimeout(function() {
+				obj.y();
+			}, 1000);
+					console.log(obj.y());
+		</script>
+	</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Curve</title>
+    <link rel="shortcut icon" type="image/x-icon" href="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+</head>
+
+<body>
+    <div style="position:absolute;padding:20px;top:0;bottom:100px;left:0;right:0">
+        <canvas id="myCanvas" style="border: 1px solid rgba(0,0,0,0.3);width:100%;height:100%"></canvas>
+    </div>
+    <div style="position:absolute;bottom:0;height:80px;padding:20px">
+        <div>基于斐波那契数列绘制螺旋曲线</div>
+        <div>Fibonacci Array:&nbsp;<span id="array"></span></div>
+        <div>Max(between 1~200):&nbsp;
+            <input type="number" id="max" onchange="setMax()" />
+        </div>
+        <div>Increment(between 1~100):&nbsp;
+            <input type="number" id="increment" onchange="setMax()" />%
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+var canvas, ctx, _max,_increment;
+initCanvas();
+
+function initCanvas() {
+    canvas = document.getElementById("myCanvas");
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    if (canvas.getContext) {
+        ctx = canvas.getContext("2d"); 
+        ctx.strokeStyle = "blue";
+    }
+    setMax();
+}
+
+function setMax() {
+    var max = parseInt(document.getElementById('max').value);
+    var increment = parseInt(document.getElementById('increment').value);
+    if (!max || max > 200 ||max < 1) {
+        _max = 10;
+    } else {
+        _max = max;
+    }
+    if (!increment || increment > 100 ||increment < 0) {
+        _increment = 100;
+    } else {
+        _increment = increment;
+    }
+    document.getElementById('max').value = _max;
+    document.getElementById('increment').value = _increment;
+    canvas.height=canvas.height;
+    ctx.beginPath();
+    drawFebLine(canvas.width/2,canvas.height/2,[1,0]);
+}
+
+function drawFebLine(x,y,febArray){
+    var length=febArray.length-2;
+    var radius=febArray[0];
+    var increment=febArray[1]*_increment/100; 
+    paintQuarter(x, y, radius, length);
+    febArray.unshift(radius + increment);
+    if(febArray.length<_max){
+        switch ((length + 1) % 4) {
+            case 0:
+                drawFebLine(x - increment, y, febArray);
+                break;
+            case 1:
+                drawFebLine(x, y - increment, febArray);
+                break;
+            case 2:
+                drawFebLine(x + increment, y, febArray);
+                break;
+            case 3:
+                drawFebLine(x, y + increment, febArray);
+                break;
+        }
+    }
+    else{
+        document.getElementById('array').innerHTML=febArray.reverse().join(',');
+        ctx.closePath();
+    }
+}
+
+function paintQuarter(x, y, radius, start) {
+    ctx.arc(x, y, radius, Math.PI / 2 * start, Math.PI / 2 * (start + 1), false);
+    ctx.stroke();
+} 
+</script>
+
+</html> 
+

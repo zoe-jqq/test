@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 在div css布局中，遇到连续英文字母或连续数字在div、p、h2、h1等盒子里排成一排显示不会自动随盒子宽度限制而自动换行 */
+			div {
+				height: 100px;
+				width: 200px;
+				overflow: auto;
+				/* white-space: nowrap; */
+				/* white-space 属性设置如何处理元素内的空白。
+				 normal默认。空白会被浏览器忽略。
+pre空白会被浏览器保留。其行为方式类似 HTML 中的 <pre> 标签。
+nowrap文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。
+pre-wrap保留空白符序列，但是正常地进行换行。
+pre-line合并空白符序列，但是保留换行符。
+inherit规定应该从父元素继承 white-space 属性的值。*/
+/* text-overflow: ellipsis; */
+				/* 跟overflow：hidden;white-space: nowrap;width:xxx配合使用 */
+				
+
+				/* text-overflow 属性规定当文本溢出包含元素时发生的事情。 */
+				border: #BBFFAA 3px solid;
+				overflow-wrap: break-word;
+				/*  属性允许长单词或 URL 地址换行到下一行。
+				normal 只在允许的断字点换行（浏览器保持默认处理）。
+        break-word 在长单词或 URL 地址内部进行换行。*/
+				word-break: break-all;
+				/*word-break 属性规定自动换行的处理方法。
+				normal 使用浏览器默认的换行规则。
+        break-all 允许在单词内换行。
+        keep-all 只能在半角空格或连字符处换行。*/
+			}
+		</style>
+	</head>
+	<body>
+		<div id="view">
+
+		</div>
+		<script type="text/javascript">
+			s = '这是一个文本这是一个文本这是一个文本这是一个文本这是一个文本这是一个啊啊啊啊啊啊啊嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊'
+			el = document.getElementById('view');
+			n = el.offsetHeight;
+			for (i = 0; i < s.length; i++) {
+				el.innerHTML = s.substr(0, i);
+				if (n < el.scrollHeight) {
+					el.style.overflow = 'hidden';
+					el.innerHTML = s.substr(0, i - 3) + '...';
+					break;
+				}
+			}
+			el.onmouseover = function () {
+				el.innerHTML = s.substr(0, s.length-1);
+					el.style.overflow = 'auto';
+			}
+			el.onmouseout = function () {
+						el.style.overflow = 'hidden';
+							el.innerHTML = s.substr(0, i - 3) + '...';
+						
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function partial(age) {
+				console.log(this.name)
+				console.log(age)
+
+			}
+			function fa () {
+				
+			}
+			var func = partial.bind({
+				name: 'strick'
+			}, 28)
+			 console.log(func)
+			 func(30)
+			function fun(name) {
+				console.log(name)
+				console.log(this.age)
+			}
+			fun.call({age:28},'freedom')
+			
+		</script>
+	</body>
+</html>
