@@ -29,17 +29,53 @@
 			// 			var n = new Array(30, 40);
 			// 			document.write(n[1] + n[2]);//NaN
 			// 			document.write(n[2]);//undefined
-// 			var k = 0;
-// 			var i = 0;
-// 			while(i < 5) {
-// 				k++;
-// 				if(k > 5) {
-// 					break;
-// 				}
+			// 			var k = 0;
+			// 			var i = 0;
+			// 			while(i < 5) {
+			// 				k++;
+			// 				if(k > 5) {
+			// 					break;
+			// 				}
+			// 			}
+			// 			document.write(i, k) ;
+			// var 1x = 10;
+			// var coumt==10; 
+
+			// 				q = setInterval(function() {
+			// 				console.log('我被调用了')
+			// 			}, 200)
+			// 		
+			// 			console.log(clearInterval(q))
+			var value = 1
+
+// 			function getValue() {
+// 				console.log(this.value)
+// 
 // 			}
-// 			document.write(i, k) ;
-var 1x = 10;//
-var coumt==10; 
+			var obj = {
+				value: 2,
+				getValue: function() {
+					value:3
+					console.log(this.value)
+
+		console.log(this)
+				},
+
+				getValue2: function() {
+// 					var getValue3 = function() {
+// 						console.log(this.value)
+// 					}
+					setTimeout(function () {
+						obj.getValue()
+					}, 500)
+
+				}
+			}
+			
+			
+			// getValue()
+			obj.getValue2()
+			// obj.getValue()
 		</script>
 	</body>
 </html>

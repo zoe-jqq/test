@@ -7,64 +7,69 @@
 	<body>
 		<script type="text/javascript">
 			var arr = [2, 5, 8, 9, 10, 2, 56, 33];
-			//冒泡排序
-			/* for (var i = 0; i < arr.length; i++) {
-				for (var j = 0; j < arr.length - i - 1; j++) {
-					if (arr[j] > arr[j + 1]) {
-						var c = arr[j];
-						arr[j] = arr[j + 1];
-						arr[j + 1] = c;
+
+			function bubbleSort(arr) {
+				//冒泡排序
+				for (var i = 0; i < arr.length; i++) {
+					for (var j = 0; j < arr.length - i - 1; j++) {
+						if (arr[j] > arr[j + 1]) {
+							var c = arr[j]
+							arr[j] = arr[j + 1]
+							arr[j + 1] = c
+						}
 					}
 				}
-			} */
-			//选择排序
-			// 			for (var i = 0; i < arr.length-1; i++) {
-			// 				var c = i;
-			// 				for (var j = i; j < arr.length; j++) {
-			// 					c = arr[j + 1] < arr[i] ? j + 1 : c;
-			// 					// console.log(c);
-			// 				}
-			// 				// console.log(c);
-			// 				 if (c!=i) {//如果c与i相等,arr[i] = arr[c]即a= a,而不是a与b进行交换顺序,并且选择排序的思想是最小位不用进行交换
-			// 				
-			// 				
-			// 					arr[i] = arr[i] +arr[c];
-			// 				arr[c] = arr[i] - arr[c];
-			// 				arr[i] = arr[i] - arr[c];
-			// 				 }
-			// 				
-			// 			}
-
-			//插入排序
-
-			/* 	for (var i = 1; i < arr.length; i++) { //没排过
-					var a = arr[i]; //提取元素x
-					for (var j = i - 1; j >= 0 && arr[j] > a; j--) { //排过
-						arr[j + 1] = arr[j];
-					}
-					arr[j + 1] = a;
-				} */
-			//归并排序
-		/* 	function merge(left, right) {
-				var result = [];
-
-				while (left.length && right.length) {
-					if (left[0] < right[0])
-						result.push(left.shift());
-					else
-						result.push(right.shift());
-				}
-
-				return result.concat(left, right);
+				return arr
 			}
 
-			function mergeSort(a) {
-				if (a.length === 1)
-					return a;
+			function selectSort(arr) {
+				//选择排序
+				for (var i = 0; i < arr.length - 1; i++) {
+					var c = i;
+					for (var j = i; j < arr.length; j++) {
+						c = arr[j + 1] < arr[i] ? j + 1 : c
+					}
+					if (c != i) { //如果c与i相等,arr[i] = arr[c]即a= a,而不是a与b进行交换顺序,并且选择排序的思想是最小位不用进行交换
+						arr[i] = arr[i] + arr[c]
+						arr[c] = arr[i] - arr[c]
+						arr[i] = arr[i] - arr[c]
+					}
+				}
+				return arr
+			}
+
+			function insertSort(arr) {
+				//插入排序
+				for (var i = 1; i < arr.length; i++) { //没排过
+					var a = arr[i] //提取元素x
+					for (var j = i - 1; j >= 0 && arr[j] > a; j--) { //排过
+						arr[j + 1] = arr[j]
+					}
+					arr[j + 1] = a
+				}
+				return arr
+			}
+
+			function mergeSort(arr) {
+				//归并排序
+				function merge(left, right) {
+					var result = [];
+
+					while (left.length && right.length) {
+						if (left[0] < right[0])
+							result.push(left.shift());
+						else
+							result.push(right.shift());
+					}
+
+					return result.concat(left, right);
+				}
+				if (arr.length === 1)
+					return arr;
 
 				var work = [];
-				for (var i = 0, len = a.length; i < len; i++)
-					work.push([a[i]]);
+				for (var i = 0, len = arr.length; i < len; i++)
+					work.push([arr[i]]);
 
 				work.push([]); // 如果数组长度为奇数
 
@@ -76,31 +81,32 @@
 				}
 
 				return work[0];
-			} */
-			
-       　function quickSort(arr){
-            //如果数组<=1,则直接返回
-            if(arr.length<=1){return arr;}
-            var pivotIndex=Math.floor(arr.length/2);
-            //找基准，并把基准从原数组删除
-            var pivot=arr.splice(pivotIndex,1)[0];
-            //定义左右数组
-            var left=[];
-            var right=[];
+			}
 
-            //比基准小的放在left，比基准大的放在right
-            for(var i=0;i<arr.length;i++){
-                if(arr[i]<=pivot){
-                    left.push(arr[i]);
-                }
-                else{
-                    right.push(arr[i]);
-                }
-            }
-            //递归
-            return quickSort(left).concat([pivot],quickSort(right));
-        }     
-			document.write(quickSort(arr));
+			function quickSort(arr) {
+				//如果数组<=1,则直接返回
+				if (arr.length <= 1) {
+					return arr;
+				}
+				var pivotIndex = Math.floor(arr.length / 2);
+				//找基准，并把基准从原数组删除
+				var pivot = arr.splice(pivotIndex, 1)[0];
+				//定义左右数组
+				var left = [];
+				var right = [];
+
+				//比基准小的放在left，比基准大的放在right
+				for (var i = 0; i < arr.length; i++) {
+					if (arr[i] <= pivot) {
+						left.push(arr[i]);
+					} else {
+						right.push(arr[i]);
+					}
+				}
+				//递归
+				return quickSort(left).concat([pivot], quickSort(right));
+			}
+			document.write(bubbleSort(arr));
 		</script>
 	</body>
 </html>

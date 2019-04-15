@@ -85,15 +85,31 @@
 
 			/* vertical-align应用于行内元素和表单元素 ,将元素行内框的垂直中点与行框的基线往上 0.5ex (相对于父元素的fontsize定义)处的一点对齐。关键就在这个 "ex" 上，它是一个相对单位，如果没有在父容器上设置字体大小，那么它将继承浏览器默认字体大小，不同浏览器字体大小不同，*/
 			/* 行框高度等于本行内所有元素中行内框最大的值（以行高值最大的行内框为基准，其他行内框采用自己的对齐方式向基准对齐，最终计算行框的高度）。 */
+			
+			#div3{
+				height: 300px;
+				width: 300px;
+			
+				border: #333333 2px solid;
+				position: absolute;
+				top: 0px;
+				bottom: 0px;
+				left: 0px;
+				right: 0px;
+				margin: auto; 
+			}
 		</style>
 
 	</head>
 	<body>
-		<div id="box1">
+	<!-- 	<div id="box1">
 			<div id="box2">
 
 			</div>
 
-		</div>
+		</div> -->
+		<div id="div3">
+	
+</div>
 	</body>
 </html>

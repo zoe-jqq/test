@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
 	<head>
 		<meta charset="utf-8">
 		<title>算法1-二维数组</title>
 		<script type="text/javascript">
-			function Find(target, array) {
- 				for(var i = 0; i < array.length; i++) {
- 					var s = array[i];
-					document.write(s);
+            /**
+             * @return {boolean}
+             */
+            function Find(target, array) {
+ 				for(let i = 0; i < array.length; i++) {
+          const s = array[i];
+          document.write(s);
 					if ( s.indexOf(target) >= 0) {
  						return(true);
 						//document.write(i);
 						//document.write(array.length);
 
-					};
-			}
+}
+        }
 			return false;	//document.write(false);
-			};
-		var array1 = [[0,3,5],[4,5,8],[4,5,7],[3,5,6]];
-		var	target1 = 3;
-		Find(target1,array1);
+            }
+            const array1 = [[0, 3, 5], [4, 5, 8], [4, 5, 7], [3, 5, 6]];
+            const target1 = 3;
+            Find(target1,array1);
 		</script>
 	</head>
 	<body>

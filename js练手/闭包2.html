@@ -6,19 +6,17 @@
 		<script type="text/javascript">
 			function creatFunctions() {
 				var result = new Array();
-				for (var i = 0; i < 10; i++) {
+				for (let i = 0; i < 10; i++) {
 					result[i] = function() {
 						return i;
 					};
-
 				}
-				 console.log(result[i-2]());
-				return result;				
+				//console.log(result[i - 2]());
+				return result;
 			}
-			 creatFunctions();
-			 
+			creatFunctions();
+
 			// a[1]();
-	
 		</script>
 	</head>
 	<body>

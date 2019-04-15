@@ -7,7 +7,7 @@
 	<body>
 		<script type="text/javascript">
 			var str = 'adgeuifhkfgweukgwkglkahdeydu'
-
+			//统计出现的次数
 			function numStr(str, gra) {
 				var obj = {}
 				for (var i = 0; i < str.length; i++) {
@@ -16,9 +16,9 @@
 				}
 				return obj[gra]
 			}
-			// console.log(numStr(str, 'a'))
+			console.log(numStr(str, 'a'))
 
-
+			//统计出现次数最多的字母
 			function maxNum(str) {
 				var obj = {},
 					maxValue = 1,
