@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="node_modules/vue/dist/vue.min.js">
+
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<h2>{{msg}}</h2>
+			<input type="button" name="" id="" value="浪起来" v-on:click="lang" />
+			<input type="button" name="" id="" value="低调" @click="stop" />
+
+
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({ //new 创建一个新对象,将构造函数的作用域赋给新对象（this指向新对象）,执行构造函数中的代码即为新对象添加属性,返回新对象
+				el: '#app',
+				data: { //data里传入对象,vue实例会代理起data对象里的所有属性,即vm.msg = data.msg,这样的话相当于data里的属性可以被methods里的方法用this获取到
+					msg: '猥琐发育别浪',
+					l: null
+				},
+				methods: {
+					lang() {
+						// 多次点击触发定时器,会触发多个定时器,速度会叠加
+// 												if (this.l != null) {
+// 													//定时器未完全清除,停止增加新的定时器
+// 													return
+// 												}
+						clearInterval(this.l)//干掉之前的定时器
+						this.l = setInterval(() => { //this.l中的this指向vm,即可取到data里的l值
+							var start = this.msg.substring(0, 1)
+							var end = this.msg.substring(1)
+							this.msg = end + start
+						}, 200)
+						//console.log(this.l)
+					},
+					stop() {
+						clearInterval(this.l)
+						//console.log(this.l) //清除后停止定时器,但是l的值没有改变
+												 // this.l = null//重新赋值为null
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

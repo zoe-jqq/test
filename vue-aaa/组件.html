@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Title</title>
+	<script src="node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+	<my-com1></my-com1><!--使用组件-->
+</div>
+<template id="tmp1">
+	<div>
+		<h3>这是使用Vue.extend创建的组件</h3>
+		<h4>好用</h4>
+	</div>
+</template>
+<script type="text/javascript">
+  /* var com1 = Vue.extend({
+     template: '<h3>这是使用Vue.extend创建的组件</h3>'//制定组件要展示的HTML
+   })
+   Vue.component('myCom1',com1)//组件名，组件的模板对象*/
+  //全局注册2
+  /* Vue.component('myCom1',Vue.extend({
+     template: '<h3>这是使用Vue.extend创建的组件</h3>'
+   }))*/
+  //全局注册3
+  /* Vue.component('myCom1', {
+     template: '<h3>这是使用Vue.extend创建的组件</h3>'//根元素必须唯一
+   })*/
+
+
+  Vue.component('myCom1', {
+    template: '#tmp1' //根元素必须唯一
+  })
+  var vm = new Vue({
+    el: '#app',
+
+    data: {},
+    methods: {}
+  })
+
+</script>
+
+</body>
+</html>

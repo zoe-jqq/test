@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Title</title>
+	<script src="node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+	<h1>爸爸的资金{{money}}</h1>
+	<com1 @func1="getMoneyFromSon" v-bind:parent="money"></com1>
+</div>
+
+
+<template id="temp1">
+	<div>
+		<h1>儿子的的资金{{parent}}</h1>
+		<input @click="sendMoney" type="button" value="给爸爸养老金">
+	</div>
+</template>
+
+<script>
+  var com1 = {
+    template: '#temp1',
+    props: ['parent'],
+    data() {
+      return {money1: '1000万'}
+    },
+    methods: {
+      sendMoney() {
+        this.$emit('func1', this.money1)
+      }
+    }
+  }
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      money: '5000万',
+      moneyFromSon: ''
+    },
+    methods: {
+      getMoneyFromSon(data) {
+        this.moneyFromSon = data
+        console.log(this.moneyFromSon)
+      }
+    },
+    components: {
+      com1
+    }
+  })
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="node_modules/vue/dist/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h1>{{message}}</h1>
+		</div><!--V层-->
+
+		<script type="text/javascript">
+			/* VM层 */
+			var vm = new Vue({
+				el: '#app',
+				/* M层 */
+				data: {
+					message: 'Hello world,I am Vue.js'
+				}
+			})
+			// console.log(vm)
+		</script>
+	</body>
+</html>

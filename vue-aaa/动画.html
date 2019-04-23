@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="node_modules/vue/dist/vue.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./lib/animate.css" />
+		<style type="text/css">
+			/* .my-enter,
+			.my-leave-to {
+				opacity: 0;
+				transform: translateX(80px);
+			}
+
+			.my-enter-active,
+			.my-leave-active {
+				transition: all 5s ease;
+			} */
+      v-move{
+
+      }
+		</style>
+	</head>
+	<body>
+		<div id="app">
+
+			<input type="button" name="" id="" value="toggle" @click="flag =! flag" />
+			<!--name属性的值作为前缀用来区分不同的动画-->
+			<!-- 	<transition name="my" enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">
+			
+				<h3 v-if="flag">这是一个h3</h3>
+			</transition> -->
+			<transition enter-active-class="bounceIn" leave-active-class="bounceOut" :duration="{enter:200,leave :11000}">
+				<h3 v-if="flag" class="animated">这是一个h3</h3>
+			</transition>
+
+		</div>
+
+		<script type="text/javascript">
+
+
+            const vm = new Vue({
+                el: '#app',
+
+                data: {
+                    flag: false
+                },
+                methods: {}
+            });
+		</script>
+	</body>
+</html>
